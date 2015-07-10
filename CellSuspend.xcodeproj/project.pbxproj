@@ -14,7 +14,7 @@
 		B8E6EC341B4E8DF600368569 /* CellSuspendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6EC331B4E8DF600368569 /* CellSuspendTests.m */; };
 		B8E6EC421B4E955B00368569 /* TitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E6EC411B4E955B00368569 /* TitleTableViewCell.m */; };
 		B8F28D7D1B4FB18400D59DED /* TitleCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D7C1B4FB18400D59DED /* TitleCard.m */; };
-		B8F28D831B4FB1B900D59DED /* TitleCard+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D821B4FB1B900D59DED /* TitleCard+UI.m */; };
+		B8F28D831B4FB1B900D59DED /* WBCard+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D821B4FB1B900D59DED /* WBCard+UI.m */; };
 		B8F28D861B4FB3FB00D59DED /* WBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D851B4FB3FB00D59DED /* WBTableViewCell.m */; };
 		B8F28D891B4FB42C00D59DED /* WBCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D881B4FB42C00D59DED /* WBCard.m */; };
 /* End PBXBuildFile section */
@@ -45,8 +45,8 @@
 		B8E6EC411B4E955B00368569 /* TitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleTableViewCell.m; sourceTree = "<group>"; };
 		B8F28D7B1B4FB18300D59DED /* TitleCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCard.h; sourceTree = "<group>"; };
 		B8F28D7C1B4FB18400D59DED /* TitleCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCard.m; sourceTree = "<group>"; };
-		B8F28D811B4FB1B900D59DED /* TitleCard+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TitleCard+UI.h"; sourceTree = "<group>"; };
-		B8F28D821B4FB1B900D59DED /* TitleCard+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TitleCard+UI.m"; sourceTree = "<group>"; };
+		B8F28D811B4FB1B900D59DED /* WBCard+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WBCard+UI.h"; sourceTree = "<group>"; };
+		B8F28D821B4FB1B900D59DED /* WBCard+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WBCard+UI.m"; sourceTree = "<group>"; };
 		B8F28D841B4FB3FB00D59DED /* WBTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTableViewCell.h; sourceTree = "<group>"; };
 		B8F28D851B4FB3FB00D59DED /* WBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTableViewCell.m; sourceTree = "<group>"; };
 		B8F28D871B4FB42C00D59DED /* WBCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCard.h; sourceTree = "<group>"; };
@@ -92,22 +92,14 @@
 		B8E6EC161B4E8DF600368569 /* CellSuspend */ = {
 			isa = PBXGroup;
 			children = (
+				B8F28D8B1B4FBE9B00D59DED /* OtherCard */,
+				B8F28D8A1B4FBE8B00D59DED /* Base */,
 				B8E6EC1B1B4E8DF600368569 /* AppDelegate.h */,
 				B8E6EC1C1B4E8DF600368569 /* AppDelegate.m */,
 				B8E6EC1E1B4E8DF600368569 /* ViewController.h */,
 				B8E6EC1F1B4E8DF600368569 /* ViewController.m */,
 				B8E6EC241B4E8DF600368569 /* Images.xcassets */,
 				B8E6EC171B4E8DF600368569 /* Supporting Files */,
-				B8E6EC401B4E955B00368569 /* TitleTableViewCell.h */,
-				B8E6EC411B4E955B00368569 /* TitleTableViewCell.m */,
-				B8F28D7B1B4FB18300D59DED /* TitleCard.h */,
-				B8F28D7C1B4FB18400D59DED /* TitleCard.m */,
-				B8F28D811B4FB1B900D59DED /* TitleCard+UI.h */,
-				B8F28D821B4FB1B900D59DED /* TitleCard+UI.m */,
-				B8F28D841B4FB3FB00D59DED /* WBTableViewCell.h */,
-				B8F28D851B4FB3FB00D59DED /* WBTableViewCell.m */,
-				B8F28D871B4FB42C00D59DED /* WBCard.h */,
-				B8F28D881B4FB42C00D59DED /* WBCard.m */,
 			);
 			path = CellSuspend;
 			sourceTree = "<group>";
@@ -136,6 +128,30 @@
 				B8E6EC321B4E8DF600368569 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8F28D8A1B4FBE8B00D59DED /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B8F28D841B4FB3FB00D59DED /* WBTableViewCell.h */,
+				B8F28D851B4FB3FB00D59DED /* WBTableViewCell.m */,
+				B8F28D871B4FB42C00D59DED /* WBCard.h */,
+				B8F28D881B4FB42C00D59DED /* WBCard.m */,
+				B8F28D811B4FB1B900D59DED /* WBCard+UI.h */,
+				B8F28D821B4FB1B900D59DED /* WBCard+UI.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		B8F28D8B1B4FBE9B00D59DED /* OtherCard */ = {
+			isa = PBXGroup;
+			children = (
+				B8F28D7B1B4FB18300D59DED /* TitleCard.h */,
+				B8F28D7C1B4FB18400D59DED /* TitleCard.m */,
+				B8E6EC401B4E955B00368569 /* TitleTableViewCell.h */,
+				B8E6EC411B4E955B00368569 /* TitleTableViewCell.m */,
+			);
+			name = OtherCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +258,7 @@
 				B8E6EC421B4E955B00368569 /* TitleTableViewCell.m in Sources */,
 				B8F28D7D1B4FB18400D59DED /* TitleCard.m in Sources */,
 				B8E6EC1D1B4E8DF600368569 /* AppDelegate.m in Sources */,
-				B8F28D831B4FB1B900D59DED /* TitleCard+UI.m in Sources */,
+				B8F28D831B4FB1B900D59DED /* WBCard+UI.m in Sources */,
 				B8E6EC1A1B4E8DF600368569 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

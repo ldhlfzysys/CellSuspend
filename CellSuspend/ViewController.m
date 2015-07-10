@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "TitleCard+UI.h"
+#import "WBCard+UI.h"
 #import "WBTableViewCell.h"
 @interface ViewController ()
 @property(nonatomic,strong)UITableView *mainTableView;
@@ -62,12 +62,6 @@
     return cell;
 }
 
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    //这里观察的presentationlayer没有东西，观察不到,动画的时候的presentationlayer是临时创建的
-    NSLog(@"change:%@",change);
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     WBCard *card = [_cards objectAtIndex:indexPath.row];
