@@ -29,13 +29,31 @@
         [self.view addSubview:_suspendView];
         //模拟数据
         _cards = [@[] mutableCopy];
-        for (int i = 0; i<17; i++) {
+        for (int i = 0; i<3; i++) {
             TitleCard *card = [[TitleCard alloc]init];
-            card.type = @"TitleCell";
+            card.type = @"TitleCard";
             card.title = [NSString stringWithFormat:@"Cell - %d",i];
             card.height = 40 + 1 * i;
             [_cards addObject:card];
         }
+        for (int i = 0; i<2; i++) {
+            ImageCard *card = [[ImageCard alloc]init];
+            card.type = @"ImageCard";
+            UIImage *img = [UIImage imageNamed:@"imageIcon.jpg"];
+            card.imageData = UIImageJPEGRepresentation(img, 1.0);
+            card.height = 50;
+            card.title = @"imageTitle";
+            [_cards addObject:card];
+        }
+        for (int i = 0; i<10; i++) {
+            TitleCard *card = [[TitleCard alloc]init];
+            card.type = @"TitleCard";
+            card.title = [NSString stringWithFormat:@"Cell - %d",i];
+            card.height = 40 + 1 * i;
+            [_cards addObject:card];
+        }
+        
+        
         
 
     }

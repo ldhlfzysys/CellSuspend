@@ -17,6 +17,9 @@
 		B8F28D831B4FB1B900D59DED /* WBCard+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D821B4FB1B900D59DED /* WBCard+UI.m */; };
 		B8F28D861B4FB3FB00D59DED /* WBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D851B4FB3FB00D59DED /* WBTableViewCell.m */; };
 		B8F28D891B4FB42C00D59DED /* WBCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D881B4FB42C00D59DED /* WBCard.m */; };
+		B8F28D8E1B4FBF3900D59DED /* ImageCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D8D1B4FBF3900D59DED /* ImageCard.m */; };
+		B8F28D911B4FBF5E00D59DED /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F28D901B4FBF5E00D59DED /* ImageTableViewCell.m */; };
+		B8F28D941B4FC0C000D59DED /* imageIcon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8F28D931B4FC0C000D59DED /* imageIcon.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		B8F28D851B4FB3FB00D59DED /* WBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTableViewCell.m; sourceTree = "<group>"; };
 		B8F28D871B4FB42C00D59DED /* WBCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBCard.h; sourceTree = "<group>"; };
 		B8F28D881B4FB42C00D59DED /* WBCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBCard.m; sourceTree = "<group>"; };
+		B8F28D8C1B4FBF3900D59DED /* ImageCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCard.h; sourceTree = "<group>"; };
+		B8F28D8D1B4FBF3900D59DED /* ImageCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCard.m; sourceTree = "<group>"; };
+		B8F28D8F1B4FBF5E00D59DED /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		B8F28D901B4FBF5E00D59DED /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		B8F28D931B4FC0C000D59DED /* imageIcon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imageIcon.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 		B8E6EC161B4E8DF600368569 /* CellSuspend */ = {
 			isa = PBXGroup;
 			children = (
+				B8F28D921B4FC0B700D59DED /* resources */,
 				B8F28D8B1B4FBE9B00D59DED /* OtherCard */,
 				B8F28D8A1B4FBE8B00D59DED /* Base */,
 				B8E6EC1B1B4E8DF600368569 /* AppDelegate.h */,
@@ -150,8 +159,20 @@
 				B8F28D7C1B4FB18400D59DED /* TitleCard.m */,
 				B8E6EC401B4E955B00368569 /* TitleTableViewCell.h */,
 				B8E6EC411B4E955B00368569 /* TitleTableViewCell.m */,
+				B8F28D8C1B4FBF3900D59DED /* ImageCard.h */,
+				B8F28D8D1B4FBF3900D59DED /* ImageCard.m */,
+				B8F28D8F1B4FBF5E00D59DED /* ImageTableViewCell.h */,
+				B8F28D901B4FBF5E00D59DED /* ImageTableViewCell.m */,
 			);
 			name = OtherCard;
+			sourceTree = "<group>";
+		};
+		B8F28D921B4FC0B700D59DED /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				B8F28D931B4FC0C000D59DED /* imageIcon.jpg */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8F28D941B4FC0C000D59DED /* imageIcon.jpg in Resources */,
 				B8E6EC251B4E8DF600368569 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +281,8 @@
 				B8F28D7D1B4FB18400D59DED /* TitleCard.m in Sources */,
 				B8E6EC1D1B4E8DF600368569 /* AppDelegate.m in Sources */,
 				B8F28D831B4FB1B900D59DED /* WBCard+UI.m in Sources */,
+				B8F28D911B4FBF5E00D59DED /* ImageTableViewCell.m in Sources */,
+				B8F28D8E1B4FBF3900D59DED /* ImageCard.m in Sources */,
 				B8E6EC1A1B4E8DF600368569 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,9 +18,6 @@
     return self;
 }
 
-- (void)setTitleText:(NSString *)str{
-    _title.text = str;
-}
 
 - (void)setCell:(WBCard *)card{
     TitleCard *myCard = (TitleCard *)card;

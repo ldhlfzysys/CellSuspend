@@ -8,7 +8,7 @@
 
 #import "WBCard.h"
 #import "TitleCard.h"
-
+#import "ImageCard.h"
 @interface WBCard (UI)
 
 + (Class)tableViewCellClass;
@@ -18,4 +18,9 @@
 
 + (Class)tableViewCellClass;
 
+@end
+
+@interface ImageCard (UI)
+
++ (Class)tableViewCellClass;
 @end

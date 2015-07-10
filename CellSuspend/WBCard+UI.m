@@ -8,6 +8,7 @@
 
 #import "WBCard+UI.h"
 #import "TitleTableViewCell.h"
+#import "ImageTableViewCell.h"
 @implementation WBCard (UI)
 
 + (Class)tableViewCellClass{
@@ -20,6 +21,14 @@
 
 + (Class)tableViewCellClass{
     return [TitleTableViewCell class];
+}
+
+@end
+
+@implementation ImageCard (UI)
+
++ (Class)tableViewCellClass{
+    return [ImageTableViewCell class];
 }
 
 @end
