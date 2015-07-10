@@ -11,4 +11,5 @@
 @interface WBCard : NSObject
 @property(nonatomic,strong)NSString *type;
 @property float height;
+@property BOOL isSuspend;
 @end
