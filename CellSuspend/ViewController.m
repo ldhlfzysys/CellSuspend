@@ -18,6 +18,7 @@
 
 @implementation ViewController
 
+#pragma mark -- LifeCycle
 - (instancetype)init{
     if (self = [super init]) {
         _mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 568)];
@@ -28,10 +29,9 @@
         _suspendView = [[UIView alloc]initWithFrame:CGRectMake(0, -64, 320, 40)];
         _suspendView.hidden = YES;
         [self.view addSubview:_suspendView];
-        
         _suspends = [@[] mutableCopy];
-        //模拟数据
         _cards = [@[] mutableCopy];
+        //模拟数据
         for (int i = 0; i<3; i++) {
             TitleCard *card = [[TitleCard alloc]init];
             card.type = @"TitleCard";
@@ -42,7 +42,7 @@
         for (int i = 0; i<2; i++) {
             ImageCard *card = [[ImageCard alloc]init];
             card.type = @"ImageCard";
-            UIImage *img = [UIImage imageNamed:@"imageIcon.jpg"];
+            UIImage *img = [UIImage imageNamed:@"starImage.png"];
             card.imageData = UIImageJPEGRepresentation(img, 1.0);
             card.height = 50;
             card.title = @"imageTitle";
@@ -51,21 +51,18 @@
                 card.isSuspend = YES;
             }
         }
-        for (int i = 0; i<10; i++) {
+        for (int i = 0; i<12; i++) {
             TitleCard *card = [[TitleCard alloc]init];
             card.type = @"TitleCard";
-            card.title = [NSString stringWithFormat:@"Cell - %d",i];
+            card.title = [NSString stringWithFormat:@"Cell - %d",i+3];
             card.height = 40 + 1 * i;
             [_cards addObject:card];
         }
-        
-        
-        
-        
     }
     return self;
 }
 
+#pragma mark -- UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -89,36 +86,25 @@
     return cell;
 }
 
-- (NSIndexPath *)indexPathInTableView:(WBTableViewCell *)cell{
-    NSIndexPath * index = [_mainTableView indexPathForCell:cell];
-    return index;
-}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     WBCard *card = [_cards objectAtIndex:indexPath.row];
     return card.height;
 }
 
+#pragma mark -- UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    //目标cell对于tableview的高度
-    if (_suspends.count > 0) {
+    if (_suspends.count > 0) {//如果有需要悬停的cell
+        //获取悬停cell在TableView中的高度
         CGRect rectInTableView = [_mainTableView rectForRowAtIndexPath:[self indexPathInTableView:_suspends[0]]];
-        
-        
-        //目标cell对于某个view的高度
-        CGRect rectInSuperview = [_mainTableView convertRect:rectInTableView toView:_mainTableView];
-        //获取需要悬停的cell
         UITableViewCell *cell = [_mainTableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]];
+        //复制一份用于显示在悬停View
         UITableViewCell *cellCopy = [self duplicate:cell];
-        
-        
+        //悬停的控制
         if ((scrollView.contentOffset.y - rectInTableView.origin.y) > -60 && (scrollView.contentOffset.y - rectInTableView.origin.y)!= 0){
-            
             [_suspendView addSubview:cellCopy];
             if (_suspendView.hidden == YES) {
                 _suspendView.hidden = NO;
             }
-            
-            
         }
         if ((scrollView.contentOffset.y - rectInTableView.origin.y) < -60){
             if (_suspendView.hidden == NO) {
@@ -129,20 +115,16 @@
     }
 }
 
-- (UIView*)duplicate:(UIView*)view
+#pragma mark -- Tools
+- (NSIndexPath *)indexPathInTableView:(WBTableViewCell *)cell{
+    NSIndexPath * index = [_mainTableView indexPathForCell:cell];
+    return index;
+}
+
+- (WBTableViewCell*)duplicate:(UITableViewCell*)view
 {
     NSData * tempArchive = [NSKeyedArchiver archivedDataWithRootObject:view];
     return [NSKeyedUnarchiver unarchiveObjectWithData:tempArchive];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
