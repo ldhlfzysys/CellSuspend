@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface myTableViewCell : UITableViewCell
+#import "WBTableViewCell.h"
+@interface TitleTableViewCell : WBTableViewCell
 @property(nonatomic,strong)UILabel *title;
-@property BOOL ifSuspend;
-@property float height;
 @end

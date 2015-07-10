@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "myTableViewCell.h"
+#import "TitleCard+UI.h"
+#import "WBTableViewCell.h"
 @interface ViewController ()
 @property(nonatomic,strong)UITableView *mainTableView;
 @property(nonatomic,strong)UIView *suspendView;
+@property(nonatomic,strong)NSMutableArray *cards;//装载不同的card
 @end
 
 @implementation ViewController
@@ -25,6 +27,16 @@
         _suspendView = [[UIView alloc]initWithFrame:CGRectMake(0, -64, 320, 40)];
         _suspendView.hidden = YES;
         [self.view addSubview:_suspendView];
+        //模拟数据
+        _cards = [@[] mutableCopy];
+        for (int i = 0; i<17; i++) {
+            TitleCard *card = [[TitleCard alloc]init];
+            card.type = @"TitleCell";
+            card.title = [NSString stringWithFormat:@"Cell - %d",i];
+            card.height = 40 + 1 * i;
+            [_cards addObject:card];
+        }
+        
 
     }
     return self;
@@ -37,26 +49,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return _cards.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *MyIdentifier = @"MyIdentifier";
-    myTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    if (cell == nil)
-    {
-        cell = [[myTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
-    }
-    if (indexPath.row == 3) {
-        cell.ifSuspend = YES;
-    }
-    if (cell.ifSuspend == YES) {
-        //观察方式试了下没搞出来
-        [cell addObserver:self forKeyPath:@"separatorInset" options:NSKeyValueObservingOptionNew context:nil];
-    }
-    cell.title.text = [NSString stringWithFormat:@"%@%d-%d",@"cell",indexPath.section,indexPath.row];
-    cell.height = 40*indexPath.row;
+    WBCard *card = nil;
+    card = [_cards objectAtIndex:indexPath.row];
+    WBTableViewCell *cell = [[[[card class] tableViewCellClass] alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MyIdentifier];
+    [cell setCell:card];
     return cell;
 }
 
@@ -68,7 +70,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40;
+    WBCard *card = [_cards objectAtIndex:indexPath.row];
+    return card.height;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
